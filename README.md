@@ -130,10 +130,11 @@ Instale as bibliotecas: PubSubClient, ArduinoJson, MFRC522, LiquidCrystal I2C.
 Importante: Edite as linhas de configuração no topo do código:
 
 C++
-
+```bash
 const char* WIFI_SSID     = "SEU_WIFI";
 const char* WIFI_PASSWORD = "SUA_SENHA";
 const char* MQTT_HOST     = "192.168.X.X"; // IP do computador rodando o Docker
+```
 Faça o upload para a placa.
 
 Nota de Firewall: No Windows, pode ser necessário liberar a porta 1883 no Firewall para que o ESP32 consiga conectar.
