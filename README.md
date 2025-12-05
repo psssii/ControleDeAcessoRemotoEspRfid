@@ -138,7 +138,7 @@ Faça o upload para a placa.
 
 Nota de Firewall: No Windows, pode ser necessário liberar a porta 1883 no Firewall para que o ESP32 consiga conectar.
 
-👤 Primeiro Acesso (Criar Admin)
+## 👤 Primeiro Acesso (Criar Admin)
 Como o banco de dados inicia vazio, você precisa criar o primeiro Administrador.
 
 Com a API rodando, execute em um terminal:
@@ -153,7 +153,7 @@ Crie um registro na tabela Teacher.
 
 Marque a opção (flag) "Admin" como verdadeira (true).
 
-📖 Guia de Uso: Hardware
+## 📖 Guia de Uso: Hardware
 Estados do LED
 
 🟢 Verde: Sala Livre.
@@ -164,7 +164,7 @@ Estados do LED
 
 🟡 Amarelo: Erro de conexão ou leitura.
 
-💻 Guia de Uso: Web & Gestão
+## 💻 Guia de Uso: Web & Gestão
 🏢 Área Administrativa (Gestão)
 1. Criar Salas:
 
@@ -198,7 +198,7 @@ Se um professor esquecer de registrar saída, clique em "Liberar Sala" no painel
 
 O sistema registrará a saída forçada e o LED voltará para Verde.
 
-📅 Portal do Professor (Reservas)
+## 📅 Portal do Professor (Reservas)
 Os professores podem acessar o sistema para garantir o uso de uma sala com antecedência.
 
 Acesse o site com seu Protocolo e Senha.
@@ -211,7 +211,7 @@ Confirme a reserva.
 
 Ao chegar na sala, passe o cartão para confirmar a presença.
 
-🚨 Contingência (Modo Offline)
+## 🚨 Contingência (Modo Offline)
 O sistema possui mecanismos para funcionar mesmo se a rede cair.
 
 Botão de Saída (Físico/Serial): Se houver falha de rede e a sala estiver travada como "Ocupada":
@@ -222,7 +222,7 @@ A sala ficará LIVRE (Verde) imediatamente para uso local.
 
 O dispositivo armazenará a informação e enviará a notificação de saída para o servidor assim que a conexão for restabelecida, mantendo a integridade dos dados.
 
-🐛 Solução de Problemas
+## 🐛 Solução de Problemas
 Erro P1001 (API): O Docker do banco de dados está parado. Rode docker-compose up -d.
 
 ESP32 não conecta: Verifique se o IP do computador mudou (ipconfig) e atualize no código Arduino.
