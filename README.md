@@ -2,7 +2,6 @@
 
 ![Status](https://img.shields.io/badge/Status-Desenvolvimento-yellow?style=flat-square)
 ![Stack](https://img.shields.io/badge/IoT-ESP32-blue?style=flat-square)
-![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
 
 Sistema completo de gerenciamento de acesso a salas de aula utilizando tecnologia RFID, comunicação MQTT em tempo real e arquitetura moderna de microsserviços.
 
@@ -14,12 +13,13 @@ Sistema completo de gerenciamento de acesso a salas de aula utilizando tecnologi
 - [Tecnologias Utilizadas](#-tecnologias-utilizadas)
 - [Pré-requisitos](#-pré-requisitos)
 - [Instalação e Configuração](#-instalação-e-configuração)
-  - [1. Infraestrutura (Docker & EMQX)](#1-infraestrutura-docker--emqx)
-  - [2. Backend (API)](#2-backend-api)
-  - [3. Frontend (Web)](#3-frontend-web)
-  - [4. Configuração do Hardware (ESP32)](#4-configuração-do-hardware-esp32)
+    1. [Infraestrutura (Docker & EMQX)](#1-infraestrutura-docker--emqx)
+    2. [Backend (API)](#2-backend-api)
+    3. [Frontend (Web)](#3-frontend-web)
+    4. [Configuração do Hardware (ESP32)](#4-configuração-do-hardware-esp32)
 - [Primeiro Acesso (Criar Admin)](#-primeiro-acesso-criar-admin)
-- [Guia de Uso](#-guia-de-uso)
+- [Guia de Uso: Hardware](#-guia-de-uso-hardware)
+- [Guia de Uso: Web & Gestão](#-guia-de-uso-web--gestão)
 - [Contingência (Modo Offline)](#-contingência-modo-offline)
 - [Solução de Problemas](#-solução-de-problemas)
 
@@ -149,7 +149,7 @@ Crie um registro na tabela Teacher.
 
 Marque a opção (flag) "Admin" como verdadeira (true).
 
-📖 Guia de Uso
+📖 Guia de Uso: Hardware
 Estados do LED
 🟢 Verde: Sala Livre.
 
@@ -159,23 +159,52 @@ Estados do LED
 
 🟡 Amarelo: Erro de conexão ou leitura.
 
-Cadastrar Novo Cartão
-No site, vá em Salas.
+💻 Guia de Uso: Web & Gestão
+🏢 Área Administrativa (Gestão)
+1. Criar Salas:
 
-Clique em "Ativar modo de cadastro".
+Acesse o menu Salas.
 
-O LED Branco do ESP32 acenderá.
+Clique no botão + (Criar).
 
-Aproxime o cartão novo.
+Defina o nome da sala. Nota: O ID gerado deve ser configurado no código do ESP32.
 
-No site, vá em Cartões e vincule o novo ID a um professor.
+2. Criar Professores (Usuários):
 
-Liberar Sala (Reset Remoto)
-Se um professor esquecer de registrar saída:
+Acesse o menu Professores.
 
-No site, clique em "Liberar Sala".
+Cadastre o Nome, Protocolo (Login) e Senha.
+
+Defina se o usuário terá permissão de Administrador.
+
+Estes dados serão usados pelo professor para logar no site.
+
+3. Cadastrar Cartão RFID:
+
+No menu Salas, clique em "Ativar modo de cadastro".
+
+O LED Branco do ESP32 acenderá. Aproxime o cartão virgem.
+
+Vá ao menu Cartões, localize o novo cartão e vincule-o ao professor criado anteriormente.
+
+4. Liberar Sala (Reset Remoto):
+
+Se um professor esquecer de registrar saída, clique em "Liberar Sala" no painel.
 
 O sistema registrará a saída forçada e o LED voltará para Verde.
+
+📅 Portal do Professor (Reservas)
+Os professores podem acessar o sistema para garantir o uso de uma sala com antecedência.
+
+Acesse o site com seu Protocolo e Senha.
+
+Vá até o menu Reservas.
+
+Selecione a Sala desejada e o Horário.
+
+Confirme a reserva.
+
+Ao chegar na sala, passe o cartão para confirmar a presença.
 
 🚨 Contingência (Modo Offline)
 O sistema possui mecanismos para funcionar mesmo se a rede cair.
