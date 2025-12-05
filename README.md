@@ -14,7 +14,7 @@ Sistema completo de gerenciamento de acesso a salas de aula utilizando tecnologi
 - [Tecnologias Utilizadas](#-tecnologias-utilizadas)
 - [Pré-requisitos](#-pré-requisitos)
 - [Instalação e Configuração](#-instalação-e-configuração)
-  - [1. Infraestrutura (Docker)](#1-infraestrutura-docker)
+  - [1. Infraestrutura (Docker & EMQX)](#1-infraestrutura-docker--emqx)
   - [2. Backend (API)](#2-backend-api)
   - [3. Frontend (Web)](#3-frontend-web)
   - [4. Configuração do Hardware (ESP32)](#4-configuração-do-hardware-esp32)
@@ -68,13 +68,21 @@ Antes de iniciar, certifique-se de ter instalado:
 
 ## 🚀 Instalação e Configuração
 
-### 1. Infraestrutura (Docker)
-Inicie os serviços de Banco de Dados e MQTT Broker.
+### 1. Infraestrutura (Docker & EMQX)
+Este passo fará o download automático das imagens do Banco de Dados e do Broker MQTT (EMQX).
 
 ```bash
 cd esp32-api
 docker-compose up -d
 Verifique: Execute docker ps. Os containers esp32-postgres e esp32-emqx devem estar com status Up.
+
+Como abrir o EMQX: O Broker MQTT possui um painel visual para monitoramento.
+
+Acesse: http://localhost:18083
+
+Login Padrão: admin
+
+Senha Padrão: public
 
 2. Backend (API)
 Instale as dependências e configure o banco de dados.
@@ -135,9 +143,11 @@ Com a API rodando, execute em um terminal:
 Bash
 
 npx prisma studio
-Abra o localhost que irá ser exibido (geralmente http://localhost:5555).
+Abra o link que aparecerá (geralmente http://localhost:5555).
 
-Crie um Teacher com a flag "Admin" ativada.
+Crie um registro na tabela Teacher.
+
+Marque a opção (flag) "Admin" como verdadeira (true).
 
 📖 Guia de Uso
 Estados do LED
