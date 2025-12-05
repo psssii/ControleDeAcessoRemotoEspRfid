@@ -74,6 +74,7 @@ Este passo fará o download automático das imagens do Banco de Dados e do Broke
 ```bash
 cd esp32-api
 docker-compose up -d
+```
 Verifique: Execute docker ps. Os containers esp32-postgres e esp32-emqx devem estar com status Up.
 
 Como abrir o EMQX: O Broker MQTT possui um painel visual para monitoramento.
@@ -87,7 +88,7 @@ Senha Padrão: public
 2. Backend (API)
 Instale as dependências e configure o banco de dados.
 
-Bash
+```bash
 
 cd esp32-api
 pnpm install
@@ -97,16 +98,18 @@ npx prisma db push
 
 # Iniciar o servidor
 pnpm run start:dev
+```
 O servidor iniciará em: http://localhost:3000
 
 3. Frontend (Web)
 Em um novo terminal:
 
-Bash
+```bash
 
 cd esp32-web
 pnpm install
 pnpm run dev
+```
 O site estará acessível em: http://localhost:5173
 
 4. Configuração do Hardware (ESP32)
@@ -140,9 +143,10 @@ Como o banco de dados inicia vazio, você precisa criar o primeiro Administrador
 
 Com a API rodando, execute em um terminal:
 
-Bash
+```bash
 
 npx prisma studio
+```
 Abra o link que aparecerá (geralmente http://localhost:5555).
 
 Crie um registro na tabela Teacher.
@@ -151,6 +155,7 @@ Marque a opção (flag) "Admin" como verdadeira (true).
 
 📖 Guia de Uso: Hardware
 Estados do LED
+
 🟢 Verde: Sala Livre.
 
 🔴 Vermelho: Sala Ocupada.
